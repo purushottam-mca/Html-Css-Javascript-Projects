@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic Tac Toe — Neon</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="confetti"></canvas>
+
+  <div class="bg-orb orb1"></div>
+  <div class="bg-orb orb2"></div>
+
+  <main class="card">
+    <header>
+      <h1><span class="x-neon">X</span><span class="o-neon">O</span> Tic Tac Toe</h1>
+      <p class="subtitle">Play with a friend or beat the unbeatable AI</p>
+    </header>
+
+    <div class="controls">
+      <div class="segmented" role="tablist" aria-label="Game mode">
+        <button id="mode-2p" class="active">👥 2 Players</button>
+        <button id="mode-ai">🤖 vs Computer</button>
+      </div>
+
+      <div class="row">
+        <label class="pill">
+          Difficulty
+          <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="impossible">Impossible</option>
+          </select>
+        </label>
+
+        <label class="pill">
+          You play
+          <select id="humanSymbol">
+            <option value="X" selected>X (first)</option>
+            <option value="O">O (second)</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <div id="status" class="status">Player <span class="x">X</span>'s turn</div>
+
+    <div id="board" class="board" aria-label="Tic tac toe board">
+      <button class="cell" data-i="0"></button>
+      <button class="cell" data-i="1"></button>
+      <button class="cell" data-i="2"></button>
+      <button class="cell" data-i="3"></button>
+      <button class="cell" data-i="4"></button>
+      <button class="cell" data-i="5"></button>
+      <button class="cell" data-i="6"></button>
+      <button class="cell" data-i="7"></button>
+      <button class="cell" data-i="8"></button>
+      <div id="winLine" class="win-line hidden"></div>
+    </div>
+
+    <div class="scoreboard">
+      <div class="score x-score"><span>X wins</span><strong id="scoreX">0</strong></div>
+      <div class="score draw-score"><span>Draws</span><strong id="scoreD">0</strong></div>
+      <div class="score o-score"><span>O wins</span><strong id="scoreO">0</strong></div>
+    </div>
+
+    <div class="actions">
+      <button id="newRound" class="btn primary">↻ New Round</button>
+      <button id="resetScores" class="btn ghost">Reset Scores</button>
+    </div>
+
+    <footer>Made with HTML • CSS • JS — no libraries</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
