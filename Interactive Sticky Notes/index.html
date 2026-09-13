@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="icon" href="https://image.flaticon.com/icons/png/512/2876/2876481.png" sizes="32x32" />
-  <link rel="stylesheet" href="style.css">
-  <title>Sticky Notes</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<title>Sticky Notes</title>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="nav">
-        <div>
-          <h1><i style="color: #523dff;" class="fas fa-sticky-note"></i> Sticky Notes</h1>
-        </div>
-        <div class="text-hint">
-        <marquee  direction=right behavior=alternate scrollamount=6> <p> After writing,  press Enter key to add it to Sticky note. </p> </marquee>
-        </div>
-      <div>
-          <button id="btn" onclick="createNote()">Create Note</button>
-          <button onclick="deleteNotes()">Delete all</button>
-      </div>
-      </div>
-    </div>
-  </header>
-
-  <div class="container">
-    <div class="createBox">
-      <textarea placeholder="Write note..." id="user-input" maxlength="135" style="font-size: 1.5rem;"></textarea>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="notes"></div>
-  </div>
-
-  <script src="script.js"></script>
-
+<header class="topbar">
+<div class="container nav">
+<div class="brand">
+<span class="logo"><i class="fas fa-sticky-note"></i></span>
+<div><h1>Sticky Notes</h1><p class="tagline">Capture ideas at lightning speed</p></div>
+</div>
+<div class="hint"><i class="fas fa-keyboard"></i><span><b>Enter</b> to save &nbsp;•&nbsp; <b>Shift + Enter</b> for new line</span></div>
+<div class="actions">
+<button id="btn" class="btn primary"><i class="fas fa-plus"></i> New Note</button>
+<button id="clearBtn" class="btn danger-ghost"><i class="fas fa-trash"></i> Clear all</button>
+</div>
+</div>
+</header>
+<main class="container">
+<div id="empty" class="empty hidden">
+<div class="empty-art"><i class="fas fa-lightbulb"></i></div>
+<h2>No notes yet</h2><p>Click <b>New Note</b> and press <b>Enter</b> to pin your first idea.</p>
+</div>
+<div class="notes" id="notes"></div>
+</main>
+<div class="overlay hidden" id="overlay">
+<div class="modal" role="dialog" aria-modal="true" aria-label="Create note">
+<div class="modal-head"><h2><i class="fas fa-pen"></i> New note</h2><button class="icon-btn" id="closeBtn" aria-label="Close">✕</button></div>
+<textarea id="user-input" placeholder="Write something brilliant..." rows="6" maxlength="280"></textarea>
+<div class="modal-foot"><span class="count"><span id="charCount">0</span>/280</span>
+<div><button class="btn ghost" id="cancelBtn">Cancel</button><button class="btn primary" id="addBtn"><i class="fas fa-check"></i> Add Note</button></div>
+</div>
+</div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
+
